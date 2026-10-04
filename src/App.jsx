@@ -585,7 +585,7 @@ function BirthdayPage({ onNext }) {
           <div className="flex flex-col items-center">
             <div
               className="w-full rounded-[26px] overflow-hidden bg-[linear-gradient(135deg,var(--light-peach),var(--peach))] shadow-[0_0_26px_rgba(86,28,36,0.2)]"
-              style={{ height: 220 }}
+              style={{ height: 280 }}
             >
               <img
                 src={hamza}
@@ -602,13 +602,13 @@ function BirthdayPage({ onNext }) {
               <BrushStroke width={64} style={{ left: "50%", bottom: -3, transform: "translateX(-50%)" }} />
             </div>
             <div className="h-[6px] shrink-0" />
-            <div className="font-['Playfair_Display'] text-[var(--dark-pink)] text-[30px] font-medium">
-              ❤️ Hamza ❤️
+            <div className="font-['Great_Vibes'] text-[var(--dark-pink)] text-[30px] font-medium">
+              Hamza!
             </div>
-            <div className="h-[14px] shrink-0" />
+            <div className="h-[10px] shrink-0" />
             <div className="font-['Poppins'] text-[var(--brown)] text-[15px]">Today is all about you ♡</div>
-            <div className="h-[26px] shrink-0" />
-            <div className="font-['Poppins'] text-[var(--dark-pink)] text-[14px] font-semibold">
+            <div className="h-[15px] shrink-0" />
+            <div className="font-['Poppins'] text-[var(--dark-pink)] text-[10px] font-semibold">
               Tap anywhere to continue
             </div>
           </div>
