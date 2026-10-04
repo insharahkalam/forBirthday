@@ -4,7 +4,6 @@ import yesGif from "./assets/yes.gif"
 import hug from "./assets/hug.gif"
 import hamza from "./assets/hamza.png"
 
-
 function ThemeStyles() {
   return (
     <style>{`
@@ -76,10 +75,10 @@ function PressableScale({ children, onTap, className = "", style }) {
 // ---------------------------------------------------------------
 // ROMANTIC CARD — soft glass card used on every screen
 // ---------------------------------------------------------------
-function RomanticCard({ children, padding = "30px 24px", radius = 34, shake, className = "" }) {
+function RomanticCard({ children, padding = "24px 24px", radius = 34, shake, className = "" }) {
   return (
     <div
-      className={`relative backdrop-blur-[18px] bg-[var(--cream)]/90 border border-white/60 shadow-[0_16px_35px_rgba(86,28,36,0.2)] max-w-[440px] w-full box-border ${shake ? "animate-[shakeX_400ms_ease-out]" : ""
+      className={`relative backdrop-blur-[18px] bg-[var(--cream)]/90 border border-white/60 shadow-[0_16px_35px_rgba(86,28,36,0.2)] max-w-[400px] w-full box-border ${shake ? "animate-[shakeX_400ms_ease-out]" : ""
         } ${className}`}
       style={{ borderRadius: radius, padding }}
     >
@@ -709,7 +708,7 @@ function LetterOpeningPage({ onOpen }) {
           <RomanticCard padding="40px 25px">
             <div className="flex flex-col items-center">
               <div className="font-['Great_Vibes'] leading-[1.1] text-[var(--dark-pink)] text-[38px] text-center">
-                A Letter For You
+                Letter For You!
               </div>
               <div className="h-[34px] shrink-0" />
               <div className="relative w-[170px] h-[120px]">
@@ -742,23 +741,6 @@ function LetterOpeningPage({ onOpen }) {
 // ============================================================
 // FINAL LOVE LETTER
 // ============================================================
-const letterBody = `Ap meri zindagi ki sabse khoobsurat khushi or mere dil ke sabse kareeb insan hn. Apki mohabbat or Apki choti choti baatein meri duniya ko or bhi beautiful bana deti hn. ❤️
-
-Allah Apki har dua qabool kare or Apki zindagi ko khushiyon se bhar de. Hamesha yunhi muskurate rahen, kyunki Apki smile meri favourite h 🥹💕
-
-Ek baat kehni thi apsy... ❤️
-
-Aaj kal jab hamari thori narazgi chal rahi hai or Ap achanak chup ya khamosh ho jate hn, tw mujhe bilkul acha nahi lagta. Shayad main kabhi zyada bol deti hoon ya Apse Apke busy waqt mein thora sa time maang leti hoon, lekin uski wajah sirf itni hai ke main Apko apna samajhti hoon. ❤️
-
-Main jaanti hoon Ap busy hote hn or main Apki masroofiyat ki respect karti hoon. Bas kabhi kabhi dil chahta hai ke un sab ke beech thora sa waqt mere lye bhi ho. Main apse ghanton ki baatein nahi maangti, kabhi kabhi sirf Apka ek chota sa message, ek pyari si baat, ya itna sa ehsaas ke "haan, main yahin hoon" hi mere lye bohat hota hai, bas thora sa waqt or ye ehsaas chahti hoon ke main Apke lye important hoon.🥺❤️
-
-Jab ap silent mood m chly jaty hn tw main bohat kuch sochne lagti hoon. Islye agar kabhi mujhse naraz hon, tw mujhse baat kar len, mujhe samjha den, jo bt buri lgy wo bta den… bas achanak khamosh hokar door mat hua karen. 🥺❤️
-
-Main Apse perfection nahi chahti, bas Apko samjhna or apni har choti bari baat Apse share karna chahti hoon, jb ky kbhi kuch baat krny ky lye hota bhi nhi phr bhi kyunki Ap mere lye bohat khaas hn. ❤️
-
-I love you so much, mere hubby jaan. I hope your birthday is as beautiful and special as you are to me. 🎂❤️
-
-Thank you for being a part of my life 😘. Here is to more memories, more laughter, more happiness and many more birthdays together. ✨`;
 
 function LetterPage() {
   return (
@@ -769,45 +751,64 @@ function LetterPage() {
             <div className="flex flex-col">
               <div className="relative text-center">
                 <div className="font-['Great_Vibes'] leading-[1.1] text-[var(--dark-pink)] text-[40px]">
-                  Dear My Love,
+                  Dear Hamza,
                 </div>
-                <BrushStroke width={80} style={{ left: "50%", bottom: 2, transform: "translateX(-50%)" }} />
+                <BrushStroke width={100} style={{ left: "50%", bottom: -10, transform: "translateX(-45%)" }} />
               </div>
-              <div className="h-[6px] shrink-0" />
-              <div className="font-['Poppins'] text-[var(--brown)] text-[13px] text-center">
-                ♡ from your loving wife Anoosha ♡
-              </div>
-              <div className="h-[22px] shrink-0" />
-              <div className="w-[60px] h-[3px] mx-auto rounded-[10px] bg-[linear-gradient(90deg,var(--peach),var(--dark-pink))]" />
-              <div className="h-[26px] shrink-0" />
+
+              <div className="h-[16px] shrink-0" />
               <div className="relative">
-                <div className="font-['Playfair_Display'] text-[var(--dark-pink)] text-[19px] font-bold text-left">
-                  Mere jaan ❤️
-                </div>
+
                 <DoodleSwirl style={{ top: -4, right: -2 }} />
               </div>
               <div className="h-[14px] shrink-0" />
-              <div className="font-['Lora'] text-[var(--brown)] leading-[1.8] text-[16px] whitespace-pre-line">
-                {letterBody}
+              <div className="font-['Lora'] text-[var(--brown)] leading-[1.8] text-[15px] ">
+
+                <p>I don't think you realize how important you are to me.
+                  You're not just my best friend; you're someone I'm genuinely grateful to have in my life. Thank you for all the laughs, stupid jokes, random talks, and unforgettable memories.
+
+                  No matter where life takes us, I hope our bond stays the same. I hope your smile never fades, your dreams come true, and your heart always finds reasons to be happy.
+
+                  I wish I could give you the biggest hug right now and remind you how precious you are to me.
+
+                  May this year bring you beautiful memories, endless laughter, and all the love you deserve.
+                  And selfishly, I hope I get to be part of many more of your birthdays.🥰</p>
+
+                <h1 className="py-2 font-serif italic text-lg font-semibold">A Few Things About You!</h1>
+
+                <ul>
+                  <li>♡ Your smile is literally my weakness.</li>
+                  <li>♡ Your voice could fix my worst mood.</li>
+                  <li>♡ Your texts are my favorite notifications.</li>
+                  <li>♡ You annoy me, but somehow I still want your attention 24/7.</li>
+                  <li>♡ You're dangerously good at making me blush.</li>
+                  <li>♡ And the worst part? I think I'm getting more attached to you every day.</li>
+                </ul>
+
+                <h6 className="py-2 font-serif italic text-lg font-semibold"> One last thing before you leave...</h6>
+                <p>
+                  If I had to choose one person to annoy, laugh with, share my secrets with, and make a million memories with, I'd choose you every single time.
+                  I don't know what the future holds, but I know that right now, you're someone I never want to lose.
+                  So here's to you, my favorite boy. To your beautiful smile, your silly heart, and the little bond we share that means more to me than words can say
+                  I hope you know just how special you are to me.
+                </p>
+                <div className="h-[16px] shrink-0" />
+                <h1 className="text-center font-['Great_Vibes'] leading-[1.1] text-[var(--dark-pink)] text-[45px] text-center">Happy Birthday, my pretty boy!</h1>
               </div>
-              <div className="h-[28px] shrink-0" />
-              <div className="w-full p-5 rounded-[22px] bg-[linear-gradient(135deg,var(--light-peach),var(--peach))] shadow-[0_0_16px_rgba(86,28,36,0.15)] text-center box-border">
-                <div className="font-['Playfair_Display'] text-[var(--dark-pink)] text-[25px] font-bold">
-                  Happy Birthday🎂 Mere Naraz Faraz😉
-                </div>
-                <div className="h-[6px] shrink-0" />
-                <div className="font-['Poppins'] text-[var(--brown)] text-[14px]">May your smile never fade.</div>
+
+              <div className="h-[20px] shrink-0" />
+              <div className="font-['Great_Vibes'] leading-[1.1] text-[var(--dark-pink)] text-[29px] text-center">
+                With all my love
               </div>
-              <div className="h-[26px] shrink-0" />
-              <div className="font-['Great_Vibes'] leading-[1.1] text-[var(--dark-pink)] text-[32px] text-center">
-                With all my love ❤️
+              <div className="h-[7px] shrink-0" />
+              <div className="font-['Poppins'] text-[var(--brown)] text-[10px] text-center">
+                ♡ from your frined Umiya ♡
               </div>
-              <div className="h-[10px] shrink-0" />
-              <div className="text-[var(--pink)] text-[22px] text-center">♡ ♡ ♡</div>
+              <div className="text-[var(--pink)] text-[20px] text-center">♡ ♡ ♡</div>
             </div>
           </RomanticCard>
-          <span className="absolute text-[var(--pink)]/50" style={{ top: -10, left: 10, fontSize: 22 }}>♡</span>
-          <span className="absolute text-[var(--pink)]/50" style={{ top: -6, right: 22, fontSize: 16 }}>♡</span>
+          <span className="absolute text-[var(--pink)]/50" style={{ top: -10, left: 10, fontSize: 20 }}>♡</span>
+          <span className="absolute text-[var(--pink)]/50" style={{ top: 267, left: 370, fontSize: 20 }}>♡</span>
           <SketchCorner style={{ bottom: -8, left: 26 }} flip />
         </div>
       </div>
