@@ -3,6 +3,10 @@ import { createPortal } from "react-dom";
 import yesGif from "./assets/yes.gif"
 import hug from "./assets/hug.gif"
 import hamza from "./assets/hamza.png"
+// import photo1 from "./assets/photos/photo1"
+import photo2 from "./assets/photos/photo2.jpeg"
+// import photo3 from "./assets/photos/photo3"
+import photo4 from "./assets/photos/photo4.jpeg"
 
 function ThemeStyles() {
   return (
@@ -107,9 +111,7 @@ const glowOrbs = [
 function RomanticBackground({ children }) {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[linear-gradient(135deg,var(--light-peach),var(--peach),var(--pink),var(--dark-pink))]">
-      {/* very faint canvas/paper grain — one inline style, kept out of Tailwind's
-          arbitrary-value syntax because the data-URI contains characters
-          (quotes, commas) Tailwind's class parser can't safely carry */}
+
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -171,14 +173,6 @@ function ScreenCenter({ children, onClick }) {
   );
 }
 
-// ---------------------------------------------------------------
-// SUBTLE ARTIST HINTS — tiny, low-opacity hand-drawn touches
-// (the birthday person is an artist, so a few quiet references
-// are tucked into corners: a pencil scribble, a dry brush swipe,
-// a small doodle swirl, and one tiny palette mark). Every piece
-// is absolutely positioned and pointer-events-none, so it can
-// never shift layout or intercept a tap.
-// ---------------------------------------------------------------
 function SketchCorner({ style, flip = false }) {
   return (
     <svg
@@ -456,7 +450,7 @@ function LoveQuestionPage({ onYes }) {
         ? "Oops, NO bhaag gaya 😜"
         : dodgeCount < 8
           ? "Pakar ke dikhao 😝"
-          : "Bas karo na, YES dabao 🥹❤️";
+          : "Bas karo na, YES dabao ❤️";
 
   const yesScale = Math.min(1 + dodgeCount * 0.02, 1.15);
 
@@ -509,8 +503,6 @@ function LoveQuestionPage({ onYes }) {
     </RomanticBackground>
   );
 }
-
-
 
 // ============================================================
 // YAY PAGE
@@ -621,10 +613,10 @@ function BirthdayPage({ onNext }) {
 // MOMENTS PAGE — Polaroid scrapbook carousel
 // ============================================================
 const moments = [
-  { image: "assets/photos/photo1.png", title: "Our First Memory", text: "One little moment that became a beautiful memory ❤️" },
-  { image: "assets/photos/photo2.png", title: "Your Smile", text: "Honestly, your smile is one of my favorite things ♡" },
-  { image: "assets/photos/photo3.png", title: "Us", text: "Some moments are simple, but they mean everything 💗" },
-  { image: "assets/photos/photo4.png", title: "My Favorite Person", text: "Life feels a little more beautiful with you 💕" },
+  // { image: photo1, title: "Our First Memory", text: "One little moment that became a beautiful memory ❤️" },
+  { image: photo2, title: "Your Smile", text: "Honestly, your smile is one of my favorite things ♡" },
+  // { image: photo3, title: "Us", text: "Some moments are simple, but they mean everything 💗" },
+  { image: photo4, title: "My Favorite Person", text: "Life feels a little more beautiful with you 💕" },
 ];
 
 function MomentsPage({ onFinish }) {
@@ -772,7 +764,7 @@ function LetterPage() {
                   I wish I could give you the biggest hug right now and remind you how precious you are to me.
 
                   May this year bring you beautiful memories, endless laughter, and all the love you deserve.
-                  And selfishly, I hope I get to be part of many more of your birthdays.🥰</p>
+                  And selfishly, I hope I get to be part of many more of your birthdays.</p>
 
                 <h1 className="py-2 font-serif italic text-lg font-semibold">A Few Things About You!</h1>
 
