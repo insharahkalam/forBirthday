@@ -1,5 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
+import yesGif from "./assets/yes.gif"
+import hug from "./assets/hug.gif"
+import hamza from "./assets/hamza.png"
+
 
 function ThemeStyles() {
   return (
@@ -363,77 +367,6 @@ function LockPage({ onUnlock }) {
 // ============================================================
 // LOVE QUESTION PAGE
 // ============================================================
-// function LoveQuestionPage({ onYes }) {
-//   const [noPressed, setNoPressed] = useState(false);
-
-//   const choiceButton = (text, selected, onTap, width = 120) => (
-//     <PressableScale onTap={onTap}>
-//       <div
-//         className={`h-[54px] rounded-full flex items-center justify-center box-border ${selected
-//             ? "bg-[linear-gradient(135deg,var(--pink),var(--dark-pink))] shadow-[0_6px_14px_rgba(86,28,36,0.35)]"
-//             : "bg-white/85 border border-[var(--pink)]/40 shadow-[0_6px_14px_rgba(86,28,36,0.12)]"
-//           }`}
-//         style={{ width }}
-//       >
-//         <span
-//           className={`font-['Poppins'] text-[15px] font-bold ${selected ? "text-white" : "text-[var(--brown)]"}`}
-//         >
-//           {text}
-//         </span>
-//       </div>
-//     </PressableScale>
-//   );
-
-//   return (
-//     <RomanticBackground>
-//       <ScreenCenter>
-//         <RomanticCard>
-//           <div className="flex flex-col items-center">
-//             <div
-//               className="w-full rounded-[26px] overflow-hidden bg-[linear-gradient(135deg,var(--light-peach),var(--peach))] shadow-[0_0_24px_rgba(86,28,36,0.18)]"
-//               style={{ height: 250 }}
-//             >
-//               <img
-//                 src={noPressed ? "assets/GIF/no.gif" : "assets/GIF/doyouloveme.gif"}
-//                 alt=""
-//                 className="w-full h-full object-cover"
-//               />
-//             </div>
-//             <div className="h-[24px] shrink-0" />
-//             <div className="relative text-center">
-//               <div className="font-['Great_Vibes'] leading-[1.1] text-[var(--dark-pink)] text-[32px]">
-//                 Do You Love Me? ❤
-//               </div>
-//               <BrushStroke width={70} style={{ left: "50%", bottom: -4, transform: "translateX(-50%)" }} />
-//             </div>
-//             <div className="h-[8px] shrink-0" />
-//             <div className="font-['Poppins'] text-[var(--brown)] text-[14px] text-center">
-//               {noPressed ? "Hmm... I don't think that answer is allowed 🙄" : "Be honest with me... ♡"}
-//             </div>
-//             <div className="h-[28px] shrink-0" />
-
-//             {!noPressed ? (
-//               <div className="flex gap-[18px]">
-//                 {choiceButton("YES", true, onYes)}
-//                 {choiceButton("NO", false, () => setNoPressed(true))}
-//               </div>
-//             ) : (
-//               <div className="flex flex-col items-center">
-//                 <div className="font-['Playfair_Display'] text-[var(--dark-pink)] text-[16px] font-bold">
-//                   YES IS THE ONLY OPTION ❤️
-//                 </div>
-//                 <div className="h-[18px] shrink-0" />
-//                 {choiceButton("YES ❤️", true, onYes, 180)}
-//               </div>
-//             )}
-//           </div>
-//         </RomanticCard>
-//       </ScreenCenter>
-//     </RomanticBackground>
-//   );
-// }
-
-
 
 function LoveQuestionPage({ onYes }) {
   const [dodgeCount, setDodgeCount] = useState(0);
@@ -538,7 +471,7 @@ function LoveQuestionPage({ onYes }) {
               style={{ height: 250 }}
             >
               <img
-                src={dodgeCount > 0 ? "assets/GIF/no.gif" : "assets/GIF/doyouloveme.gif"}
+                src={hug}
                 alt=""
                 className="w-full h-full object-cover"
               />
@@ -614,24 +547,22 @@ function YayPage({ onContinue }) {
             <div className="flex flex-col items-center">
               <div
                 className="w-full rounded-[26px] overflow-hidden bg-[linear-gradient(135deg,var(--light-peach),var(--peach))] shadow-[0_0_24px_rgba(86,28,36,0.18)]"
-                style={{ height: 190 }}
+                style={{ height: 220 }}
               >
-                <img src="assets/GIF/yes.gif" alt="" className="w-full h-full object-cover" />
+                <img src={yesGif} alt="yes" className="w-full h-full object-cover" />
               </div>
               <div className="h-[18px] shrink-0" />
               <div className="font-['Great_Vibes'] leading-[1.1] text-[var(--dark-pink)] text-[28px]">Hayeeeee!</div>
-              <div className="h-[6px] shrink-0" />
-              <div className="font-['Playfair_Display'] text-[var(--dark-pink)] text-[21px] font-bold">
-                I KNEW IT! 🥹❤️
+              <div className="h-[8px] shrink-0" />
+              <div className="italic uppercase text-[var(--dark-pink)] font-serif text-[30px]">
+                I knew it❤️
               </div>
-              <div className="h-[22px] shrink-0" />
+              <div className="h-[8px] shrink-0" />
               <div className="font-['Poppins'] text-[var(--brown)] text-[16px] text-center">
                 You just made me the happiest person! ♡
               </div>
-              <div className="h-[40px] shrink-0" />
-              {/* <div className="text-[28px] text-[var(--pink)]">👆</div> */}
               <div className="h-[8px] shrink-0" />
-              <div className="font-['Poppins'] text-[var(--dark-pink)] text-[14px] font-semibold">
+              <div className="font-['Poppins'] text-[var(--dark-pink)] text-[10px] font-semibold">
                 Tap anywhere to continue
               </div>
             </div>
@@ -657,7 +588,7 @@ function BirthdayPage({ onNext }) {
               style={{ height: 220 }}
             >
               <img
-                src="assets/photos/birthday.png"
+                src={hamza}
                 alt=""
                 className="w-full h-full object-cover"
                 style={{ objectPosition: "center 10%" }}
@@ -672,7 +603,7 @@ function BirthdayPage({ onNext }) {
             </div>
             <div className="h-[6px] shrink-0" />
             <div className="font-['Playfair_Display'] text-[var(--dark-pink)] text-[30px] font-medium">
-              ❤️ Dear ❤️
+              ❤️ Hamza ❤️
             </div>
             <div className="h-[14px] shrink-0" />
             <div className="font-['Poppins'] text-[var(--brown)] text-[15px]">Today is all about you ♡</div>
