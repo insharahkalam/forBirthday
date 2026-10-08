@@ -40,6 +40,28 @@ function ThemeStyles() {
         0% { transform: scale(0.3); opacity: 0; }
         100% { transform: scale(1); opacity: 1; }
       }
+      @keyframes flicker {
+        0%, 100% { transform: scale(1, 1) translateY(0); opacity: 1; }
+        25% { transform: scale(0.9, 1.12) translateY(-1px); opacity: 0.9; }
+        50% { transform: scale(1.05, 0.95) translateY(0); opacity: 1; }
+        75% { transform: scale(0.92, 1.08) translateY(-1px); opacity: 0.92; }
+      }
+      @keyframes confettiFall {
+        0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(110vh) rotate(720deg); opacity: 0.9; }
+      }
+      @keyframes bob {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+      }
+      @keyframes smokeUp {
+        0% { transform: translateY(0); opacity: 0.7; }
+        100% { transform: translateY(-26px); opacity: 0; }
+      }
+      @keyframes hugPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.06); }
+      }
     `}</style>
   );
 }
@@ -321,8 +343,8 @@ function LockPage({ onUnlock }) {
               ))}
             </div>
             <div className="h-[24px] shrink-0" />
-            <div className="font-['Poppins'] text-[var(--brown)] text-[13px] opacity-85">
-              Enter your DOB 4-digit code
+            <div className="font-['Poppins'] text-[var(--brown)] text-[12px] opacity-85">
+              Enter the day we first talked
             </div>
             <div className="h-[22px] shrink-0" />
 
@@ -737,7 +759,7 @@ function LetterOpeningPage({ onOpen }) {
 // FINAL LOVE LETTER
 // ============================================================
 
-function LetterPage() {
+function LetterPage({ onNext }) {
   return (
     <RomanticBackground>
       <div className="min-h-screen flex justify-center px-5 pt-6 pb-[34px] box-border">
@@ -800,12 +822,226 @@ function LetterPage() {
                 ♡ from your frined Umiya ♡
               </div>
               <div className="text-[var(--pink)] text-[20px] text-center">♡ ♡ ♡</div>
+
+              {/* NEW: button to the cake + hug surprise */}
+              <div className="h-[22px] shrink-0" />
+              <PressableScale onTap={onNext} className="w-full">
+                <div className="w-full h-[52px] rounded-full bg-[linear-gradient(135deg,var(--pink),var(--dark-pink))] shadow-[0_6px_14px_rgba(86,28,36,0.3)] flex items-center justify-center box-border">
+                  <span className="font-['Poppins'] text-white text-[15px] font-semibold">
+                    There's one more surprise 🎂
+                  </span>
+                </div>
+              </PressableScale>
             </div>
           </RomanticCard>
           <span className="absolute text-[var(--pink)]/50" style={{ top: -10, left: 10, fontSize: 20 }}>♡</span>
           <span className="absolute text-[var(--pink)]/50" style={{ top: 267, left: 370, fontSize: 20 }}>♡</span>
           <SketchCorner style={{ bottom: -8, left: 26 }} flip />
         </div>
+      </div>
+    </RomanticBackground>
+  );
+}
+
+// ============================================================
+// CONFETTI (cake page)
+// ============================================================
+const confettiPieces = Array.from({ length: 36 }, (_, i) => ({
+  left: (i * 29 + 7) % 100,
+  size: 6 + ((i * 7) % 8),
+  delay: -((i * 0.23) % 4),
+  duration: 3 + ((i * 13) % 20) / 10,
+  color: ["#E8D8C4", "#ffffff", "#C7B7A3", "#6D2932", "#ffd6dd"][i % 5],
+  round: i % 3 === 0,
+}));
+
+function Confetti() {
+  return (
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-20">
+      {confettiPieces.map((c, i) => (
+        <span
+          key={i}
+          className="absolute top-0"
+          style={{
+            left: `${c.left}%`,
+            width: c.size,
+            height: c.round ? c.size : c.size * 1.6,
+            borderRadius: c.round ? "50%" : 2,
+            background: c.color,
+            animation: `confettiFall ${c.duration}s linear ${c.delay}s infinite`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+// ============================================================
+// CAKE PAGE
+// ============================================================
+function CakePage({ onNext }) {
+  const [blown, setBlown] = useState(false);
+  const candles = [78, 110, 142];
+
+  return (
+    <RomanticBackground>
+      {blown && <Confetti />}
+      <ScreenCenter>
+        <RomanticCard padding="30px 24px 26px">
+          <SketchCorner style={{ top: 14, right: 18 }} />
+          <div className="flex flex-col items-center">
+            <div className="relative text-center">
+              <div className="font-['Great_Vibes'] leading-[1.1] text-[var(--dark-pink)] text-[36px]">
+                {blown ? "Yayyy! 🎉" : "Make a wish..."}
+              </div>
+              <BrushStroke width={70} style={{ left: "50%", bottom: -4, transform: "translateX(-50%)" }} />
+            </div>
+            <div className="h-[16px] shrink-0" />
+
+            <PressableScale onTap={() => setBlown(true)}>
+              <div style={{ animation: blown ? "none" : "bob 2.4s ease-in-out infinite" }}>
+                <svg width="260" height="240" viewBox="0 0 220 200" fill="none">
+                  {/* plate */}
+                  <ellipse cx="110" cy="178" rx="100" ry="13" fill="#C7B7A3" />
+                  <ellipse cx="110" cy="174" rx="92" ry="10" fill="#E8D8C4" />
+
+                  {/* bottom layer */}
+                  <rect x="28" y="116" width="164" height="58" rx="12" fill="#6D2932" />
+                  <rect x="28" y="116" width="164" height="16" rx="8" fill="#E8D8C4" />
+                  {[44, 72, 100, 128, 156, 178].map((x, i) => (
+                    <ellipse key={i} cx={x} cy={132 + (i % 2) * 3} rx="7" ry={6 + (i % 2) * 3} fill="#E8D8C4" />
+                  ))}
+                  <text x="110" y="162" textAnchor="middle" fontSize="16" fill="#E8D8C4" opacity="0.8">♡ ♡ ♡</text>
+
+                  {/* top layer */}
+                  <rect x="54" y="78" width="112" height="42" rx="11" fill="#561C24" />
+                  <rect x="54" y="78" width="112" height="13" rx="6.5" fill="#E8D8C4" />
+                  {[68, 92, 116, 140, 156].map((x, i) => (
+                    <ellipse key={i} cx={x} cy={91 + (i % 2) * 2} rx="6" ry={5 + (i % 2) * 3} fill="#E8D8C4" />
+                  ))}
+
+                  {/* candles */}
+                  {candles.map((cx, i) => (
+                    <g key={i}>
+                      <rect x={cx - 4} y="50" width="8" height="30" rx="2" fill="#f7efe4" stroke="#C7B7A3" strokeWidth="1" />
+                      <path d={`M${cx - 4} 58 L${cx + 4} 54`} stroke="#6D2932" strokeWidth="2" opacity="0.7" />
+                      <path d={`M${cx - 4} 68 L${cx + 4} 64`} stroke="#6D2932" strokeWidth="2" opacity="0.7" />
+                      <rect x={cx - 0.6} y="45" width="1.2" height="6" fill="#561C24" />
+
+                      {/* flame */}
+                      <g
+                        style={{
+                          transformOrigin: `${cx}px 46px`,
+                          animation: blown ? "none" : `flicker ${0.5 + i * 0.12}s ease-in-out infinite`,
+                          opacity: blown ? 0 : 1,
+                          transition: "opacity 0.35s ease",
+                        }}
+                      >
+                        <ellipse cx={cx} cy="38" rx="7" ry="11" fill="#ffb347" opacity="0.35" />
+                        <path d={`M${cx} 28 C ${cx + 6} 36, ${cx + 5} 45, ${cx} 46 C ${cx - 5} 45, ${cx - 6} 36, ${cx} 28 Z`} fill="#ffcf5c" />
+                        <path d={`M${cx} 35 C ${cx + 3} 40, ${cx + 2.5} 44, ${cx} 45 C ${cx - 2.5} 44, ${cx - 3} 40, ${cx} 35 Z`} fill="#fff3c4" />
+                      </g>
+
+                      {/* smoke */}
+                      {blown && (
+                        <circle
+                          cx={cx}
+                          cy="42"
+                          r="3"
+                          fill="#ffffff"
+                          style={{ animation: `smokeUp 1.6s ease-out ${i * 0.15}s forwards` }}
+                        />
+                      )}
+                    </g>
+                  ))}
+                </svg>
+              </div>
+            </PressableScale>
+
+            <div className="h-[8px] shrink-0" />
+            <div className="font-['Poppins'] text-[var(--brown)] text-[14px] text-center min-h-[42px]">
+              {blown
+                ? "I hope every single wish you just made comes true ✨"
+                : "Tap the cake to blow the candles 🕯️"}
+            </div>
+            <div className="h-[14px] shrink-0" />
+
+            {blown && (
+              <PressableScale onTap={onNext} className="w-full">
+                <div className="w-full h-[50px] rounded-full bg-[linear-gradient(135deg,var(--pink),var(--dark-pink))] shadow-[0_6px_14px_rgba(86,28,36,0.3)] flex items-center justify-center box-border animate-[popIn_500ms_ease-out]">
+                  <span className="font-['Poppins'] text-white text-[15px] font-semibold">One last thing... →</span>
+                </div>
+              </PressableScale>
+            )}
+          </div>
+        </RomanticCard>
+      </ScreenCenter>
+    </RomanticBackground>
+  );
+}
+
+// ============================================================
+// HUG PAGE
+// ============================================================
+function HugPage() {
+  const [sent, setSent] = useState(false);
+
+  return (
+    <RomanticBackground>
+      <div className="relative">
+        {sent && <HeartsOverlay />}
+        <ScreenCenter>
+          <RomanticCard padding="28px 24px 26px">
+            <SketchCorner style={{ top: 12, left: 16 }} flip />
+            <div className="flex flex-col items-center">
+              <div
+                className="w-full rounded-[26px] overflow-hidden bg-[linear-gradient(135deg,var(--light-peach),var(--peach))] shadow-[0_0_24px_rgba(86,28,36,0.18)]"
+                style={{ height: 230 }}
+              >
+                <img src={yesGif} alt="yes" className="w-full h-full object-cover" />
+              </div>
+              <div className="h-[20px] shrink-0" />
+
+              <div className="relative text-center">
+                <div className="font-['Great_Vibes'] leading-[1.1] text-[var(--dark-pink)] text-[34px]">
+                  {sent ? "Hug delivered 🤗" : "Before you go..."}
+                </div>
+                <BrushStroke width={80} style={{ left: "50%", bottom: -4, transform: "translateX(-50%)" }} />
+              </div>
+              <div className="h-[12px] shrink-0" />
+
+              <div className="font-['Lora'] text-[var(--brown)] text-[14px] leading-[1.6] text-center">
+                {sent ? (
+                  <>
+                    Squeezing you tight right now, as tight as I can 🫂
+                    <br />
+                    <span className="font-serif italic font-semibold">
+                      Happy Birthday, Hamza. You deserve all the happiness in the world ♡
+                    </span>
+                  </>
+                ) : (
+                  "I couldn't be there to hug you, so here's a big one, just for you."
+                )}
+              </div>
+              <div className="h-[18px] shrink-0" />
+
+              {!sent ? (
+                <PressableScale onTap={() => setSent(true)} className="w-full">
+                  <div
+                    className="w-full h-[54px] rounded-full bg-[linear-gradient(135deg,var(--pink),var(--dark-pink))] shadow-[0_6px_14px_rgba(86,28,36,0.35)] flex items-center justify-center box-border"
+                    style={{ animation: "hugPulse 1.6s ease-in-out infinite" }}
+                  >
+                    <span className="font-['Poppins'] text-white text-[15px] font-bold">Take your hug 🤗</span>
+                  </div>
+                </PressableScale>
+              ) : (
+                <div className="font-['Dancing_Script'] font-semibold text-[var(--dark-pink)] text-[20px] text-center">
+                  ♡ Love you, always ♡
+                </div>
+              )}
+            </div>
+          </RomanticCard>
+        </ScreenCenter>
       </div>
     </RomanticBackground>
   );
@@ -832,7 +1068,11 @@ export default function BirthdayLoveApp() {
       case "letterOpening":
         return <LetterOpeningPage onOpen={() => setScreen("letter")} />;
       case "letter":
-        return <LetterPage />;
+        return <LetterPage onNext={() => setScreen("cake")} />;
+      case "cake":
+        return <CakePage onNext={() => setScreen("hug")} />;
+      case "hug":
+        return <HugPage />;
       default:
         return <LockPage onUnlock={() => setScreen("question")} />;
     }
