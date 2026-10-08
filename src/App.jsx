@@ -3,9 +3,9 @@ import { createPortal } from "react-dom";
 import yesGif from "./assets/yes.gif"
 import hug from "./assets/hug.gif"
 import hamza from "./assets/hamza.png"
-// import photo1 from "./assets/photos/photo1"
+import photo1 from "./assets/photos/photo1.jpeg"
 import photo2 from "./assets/photos/photo2.jpeg"
-// import photo3 from "./assets/photos/photo3"
+import photo3 from "./assets/photos/photo3.jpeg"
 import photo4 from "./assets/photos/photo4.jpeg"
 
 function ThemeStyles() {
@@ -613,10 +613,10 @@ function BirthdayPage({ onNext }) {
 // MOMENTS PAGE — Polaroid scrapbook carousel
 // ============================================================
 const moments = [
-  // { image: photo1, title: "Our First Memory", text: "One little moment that became a beautiful memory ❤️" },
-  { image: photo2, title: "Your Smile", text: "Honestly, your smile is one of my favorite things ♡" },
-  // { image: photo3, title: "Us", text: "Some moments are simple, but they mean everything 💗" },
-  { image: photo4, title: "My Favorite Person", text: "Life feels a little more beautiful with you 💕" },
+  { image: photo1, title: "My Favourite Artist ", text: "I’m so proud of the artist you are the dedicated, patience, endless ideas and thoughts into art , chapter’s into color, and ordinary moments into  something  extraordinary i really love your and youuuu❤️" },
+  { image: photo2, title: "My Favorite Person", text: "I know this ain’t your favorite 😭😭 but honestly, this was one of the most unnecessarily bland moments of our lives like??", last: "I’m never gonna forget this one😭❤️" },
+  { image: photo3, title: "My Favorite Person", text: "You came into my life at the perfect time, and I honestly didn’t expect to feel this way. You make my days brighter, my overthinking softer, and my heart happier. I love the way you laugh, the way you think, the way you’re always there — and most of all, I love you. You’re not just someone I like… you’re someone I genuinely care about, maybe even more than I should. But I’m so glad it’s you.", last: "You’re my favorite kind of person. ♡" },
+  { image: photo4, title: "My Favorite Person", text: "You came into my life so effortlessly, and somehow became one of the most important parts of it. I don’t know what the future holds, but I know I’ll always be grateful for every little moment, every laugh, and every memory with you. You’re not just my favorite person...", last: " you’re my favorite feeling. ♡" },
 ];
 
 function MomentsPage({ onFinish }) {
@@ -636,12 +636,12 @@ function MomentsPage({ onFinish }) {
   return (
     <RomanticBackground>
       <div className="flex flex-col items-center min-h-screen pt-[18px] pb-[16px] box-border">
-        <div className="font-['Playfair_Display'] text-[var(--dark-pink)] text-[30px] font-medium">
-          Our Best Moments
+        <div className="font-['Great_Vibes'] mt-2 text-[var(--dark-pink)] text-[28px] ">
+          ♡ Little Memories, Big Feelings ♡
         </div>
-        <div className="h-[4px] shrink-0" />
-        <div className="font-['Poppins'] text-[var(--brown)] text-[14px]">♡ Little Memories, Big Feelings ♡</div>
-        <div className="h-[16px] shrink-0" />
+
+
+        <div className="h-[26px] shrink-0" />
 
         <div className="flex-1 w-full max-w-[440px] px-[22px] box-border">
           <div
@@ -654,12 +654,15 @@ function MomentsPage({ onFinish }) {
               <img src={moment.image} alt={moment.title} className="w-full h-full object-cover" />
             </div>
             <div className="h-[14px] shrink-0" />
-            <div className="font-['Dancing_Script'] font-semibold text-[var(--dark-pink)] text-[26px]">
+            <div className="font-['Dancing_Script'] font-extrabold text-[var(--dark-pink)] text-[30px]">
               {moment.title}
             </div>
             <div className="h-[6px] shrink-0" />
-            <div className="font-['Lora'] text-[var(--brown)] leading-[1.5] text-[14px] text-center">
+            <div className="font-['Lora'] text-[var(--brown)] leading-[1.5] text-[13px] text-center">
               {moment.text}
+            </div>
+            <div className="font-serif italic mt-1 font-semibold text-[var(--brown)] leading-[1.5] text-[13px] text-center">
+              {moment.last}
             </div>
             <div className="h-[14px] shrink-0" />
             <div className="flex justify-center gap-2">
@@ -677,8 +680,8 @@ function MomentsPage({ onFinish }) {
             <div className="h-[14px] shrink-0" />
             <PressableScale onTap={next} className="w-full">
               <div className="w-full h-[50px] rounded-full bg-[linear-gradient(135deg,var(--pink),var(--dark-pink))] shadow-[0_6px_14px_rgba(86,28,36,0.3)] flex items-center justify-center box-border">
-                <span className="font-['Poppins'] text-white text-[15px] font-bold">
-                  {currentPage === moments.length - 1 ? "Open My Letter 💌" : "Next Memory →"}
+                <span className="font-['Poppins'] text-white text-[15px] font-semibold">
+                  {currentPage === moments.length - 1 ? "Open My Letter ♡" : "Next Memory →"}
                 </span>
               </div>
             </PressableScale>
