@@ -1000,45 +1000,18 @@ function HugPage() {
               >
                 <img src={yesGif} alt="yes" className="w-full h-full object-cover" />
               </div>
-              <div className="h-[20px] shrink-0" />
+              <div className="h-[40px] shrink-0" />
 
               <div className="relative text-center">
-                <div className="font-['Great_Vibes'] leading-[1.1] text-[var(--dark-pink)] text-[34px]">
-                  {sent ? "Hug delivered 🤗" : "Before you go..."}
-                </div>
-                <BrushStroke width={80} style={{ left: "50%", bottom: -4, transform: "translateX(-50%)" }} />
-              </div>
-              <div className="h-[12px] shrink-0" />
-
-              <div className="font-['Lora'] text-[var(--brown)] text-[14px] leading-[1.6] text-center">
-                {sent ? (
-                  <>
-                    Squeezing you tight right now, as tight as I can 🫂
-                    <br />
-                    <span className="font-serif italic font-semibold">
-                      Happy Birthday, Hamza. You deserve all the happiness in the world ♡
-                    </span>
-                  </>
-                ) : (
-                  "I couldn't be there to hug you, so here's a big one, just for you."
-                )}
-              </div>
-              <div className="h-[18px] shrink-0" />
-
-              {!sent ? (
-                <PressableScale onTap={() => setSent(true)} className="w-full">
-                  <div
-                    className="w-full h-[54px] rounded-full bg-[linear-gradient(135deg,var(--pink),var(--dark-pink))] shadow-[0_6px_14px_rgba(86,28,36,0.35)] flex items-center justify-center box-border"
-                    style={{ animation: "hugPulse 1.6s ease-in-out infinite" }}
-                  >
-                    <span className="font-['Poppins'] text-white text-[15px] font-bold">Take your hug 🤗</span>
+                <div className="font-['Great_Vibes'] capitalize leading-[1.1] text-[var(--dark-pink)] text-[30px]">
+                  <p>Hug for you before you go!</p>
+                  <div className="h-[20px] shrink-0" />
+                  <div className="font-['Dancing_Script'] text-[var(--dark-pink)] text-[15px] text-center">
+                    ♡ Love you, always ♡
                   </div>
-                </PressableScale>
-              ) : (
-                <div className="font-['Dancing_Script'] font-semibold text-[var(--dark-pink)] text-[20px] text-center">
-                  ♡ Love you, always ♡
                 </div>
-              )}
+                <BrushStroke width={80} style={{ left: "50%", bottom: -12, transform: "translateX(-50%)" }} />
+              </div>
             </div>
           </RomanticCard>
         </ScreenCenter>
